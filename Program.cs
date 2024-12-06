@@ -47,7 +47,7 @@ List<Product> products = new List<Product>()
     },
     new Product()
     {
-        Name = "Chocolate Tissue Paper Cowl",
+        Name = "Chocolate Tissue-Paper Cowl",
         Price = 24.99M,
         IsAvailable = false,
         ProductTypeId = 1
@@ -99,22 +99,28 @@ while (choice != "0")
 
 void ListProducts()
 {
-
+    Console.WriteLine("Products:");
+    for (int i = 0; i < products.Count; i++)
+    {
+        Console.WriteLine($"{i + 1}. {products[i].Name} -- {productTypes[products[i].ProductTypeId - 1].Name} -- {products[i].Price}");
+    }
 }
 
 void AddProduct()
 {
+    throw new NotImplementedException();
 
 }
 
 void DeleteProduct()
 {
+    throw new NotImplementedException();
 
 }
 
 void UpdateProduct()
 {
-    
+    throw new NotImplementedException();
 }
 
 
