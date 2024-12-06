@@ -143,8 +143,16 @@ void AddProduct()
 
 void DeleteProduct()
 {
-    throw new NotImplementedException();
-
+    Console.WriteLine("Please select a product to delete:");
+    for (int i = 0; i < products.Count; i++)
+    {
+        Console.WriteLine($"{i + 1}. {products[i].Name} -- {productTypes[products[i].ProductTypeId - 1].Name} -- {products[i].Price}");
+    }
+    int delistChoice = int.Parse(Console.ReadLine().Trim()) - 1;
+    Console.WriteLine(delistChoice);
+    products.RemoveAt(delistChoice);
+    Console.Clear();
+    Console.WriteLine($"Product deleted!");
 }
 
 void UpdateProduct()
