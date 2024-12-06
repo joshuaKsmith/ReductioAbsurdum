@@ -66,7 +66,8 @@ while (choice != "0")
         1. View all products
         2. Add product to inventory
         3. Delete product from inventory
-        4. Update product details"
+        4. Update product details
+        5. Filter by product type"
     );
 
     choice = Console.ReadLine();
@@ -91,6 +92,10 @@ while (choice != "0")
     {
         UpdateProduct();
     }
+    else if (choice == "5")
+    {
+        FilterByProductType();
+    }
     else 
     {
         Console.WriteLine("Invalid Input!");
@@ -108,7 +113,31 @@ void ListProducts()
 
 void AddProduct()
 {
-    throw new NotImplementedException();
+    Console.WriteLine("-- Please enter the product name:");
+    string nameRes = Console.ReadLine();
+
+    Console.Clear();
+    Console.WriteLine("-- Please enter the product price:");
+    decimal priceRes = decimal.Parse(Console.ReadLine().Trim());
+
+    Console.Clear();
+    Console.WriteLine("-- Please select product type:");
+    foreach (ProductType productType in productTypes)
+    {
+        Console.WriteLine($"{productType.Id}. {productType.Name}");
+    }
+    int typeRes = int.Parse(Console.ReadLine().Trim());
+
+    Product newProduct = new Product()
+    {
+        Name = nameRes,
+        Price = priceRes,
+        IsAvailable = true,
+        ProductTypeId = typeRes,
+    };
+    products.Add(newProduct);
+    Console.Clear();
+    Console.WriteLine($"{newProduct.Name} listed for sale!");
 
 }
 
@@ -123,4 +152,8 @@ void UpdateProduct()
     throw new NotImplementedException();
 }
 
+void FilterByProductType()
+{
+    throw new NotImplementedException();
+}
 
